@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 7 Physics Revision</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f8f7;
+      --panel: #ffffff;
+      --ink: #15201d;
+      --muted: #60716c;
+      --line: #d8e5e1;
+      --accent: #136f63;
+      --accent-2: #e6f4f1;
+      --warn: #fff4df;
+      --danger: #8b2e20;
+      --shadow: 0 10px 30px rgba(21, 32, 29, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+      display: grid;
+      gap: 18px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      letter-spacing: 0;
+    }
+
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1rem; }
+
+    .sub {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 76ch;
+    }
+
+    .exam {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-width: 170px;
+    }
+
+    .exam strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      display: grid;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .audio-controls, .tools {
+      display: grid;
+      gap: 10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    button, select, input { font: inherit; }
+
+    button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+
+    button:hover { border-color: var(--accent); }
+
+    button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    button.active {
+      background: var(--accent-2);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+    }
+
+    select {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .status {
+      min-height: 1.4em;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .topic-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .topic-button {
+      text-align: left;
+      display: grid;
+      gap: 3px;
+    }
+
+    .topic-button span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .content {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .topic-head {
+      display: grid;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      padding: 4px 9px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 13px;
+      display: grid;
+      gap: 8px;
+      background: #fff;
+      min-width: 0;
+    }
+
+    .card p, li {
+      line-height: 1.48;
+    }
+
+    .mini-title {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li { margin-top: 5px; }
+
+    .practical {
+      background: var(--warn);
+      border-color: #ead5ac;
+    }
+
+    .practical .mini-title { color: var(--danger); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px 6px;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fff;
+    }
+
+    details[open] {
+      background: var(--accent-2);
+      border-color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 720;
+      line-height: 1.45;
+    }
+
+    details p {
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .speaker-line {
+      border-left: 4px solid var(--accent);
+      padding: 9px 10px;
+      background: var(--accent-2);
+      border-radius: 8px;
+      line-height: 1.5;
+    }
+
+    .diagram-card {
+      grid-column: 1 / -1;
+    }
+
+    .diagram {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdfc;
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      min-width: 660px;
+      height: auto;
+    }
+
+    .label-check {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .exam-practice {
+      grid-column: 1 / -1;
+      background: #f9fcfb;
+    }
+
+    .task-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .task-prompt {
+      color: var(--ink);
+      line-height: 1.48;
+    }
+
+    .task-type {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .memory-card {
+      background: #fffdf7;
+      border-color: #ead5ac;
+    }
+
+    .memory-card .mini-title {
+      color: #8b5b12;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 840px) {
+      main { width: min(100% - 20px, 1180px); padding-top: 14px; }
+      header { grid-template-columns: 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .grid { grid-template-columns: 1fr; }
+      .label-check { grid-template-columns: 1fr; }
+      .buttons { grid-template-columns: 1fr; }
+      button, select { min-height: 44px; }
+      .diagram svg { min-width: 620px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Year 7 Physics Revision</h1>
+        <p class="sub">Light, exam-focused study for Forces and Density, Energy, Waves, Space, and Heating and Cooling. Short blocks, practical skills, diagrams, exam tasks, and UK voice audio.</p>
+      </div>
+      <div class="exam">
+        <strong>Study mode</strong>
+        Ready for tomorrow
+      </div>
+    </header>
+
+    <section class="layout">
+      <aside class="panel sidebar">
+        <div class="audio-controls">
+          <div class="buttons">
+            <button class="primary" type="button" id="play">Play</button>
+            <button type="button" id="pause">Pause</button>
+            <button type="button" id="stop">Stop</button>
+          </div>
+
+          <label>
+            Speed
+            <input id="rate" type="range" min="0.75" max="1.15" step="0.05" value="0.9">
+          </label>
+
+          <label>
+            Voice
+            <select id="voice"></select>
+          </label>
+
+          <div class="status" id="status">Ready. Choose a topic and press Play.</div>
+        </div>
+
+        <div class="tools">
+          <div class="buttons">
+            <button class="active" type="button" data-mode="study">Study</button>
+            <button type="button" data-mode="exam">Exam</button>
+            <button type="button" data-mode="quiz">Quiz</button>
+            <button type="button" data-mode="script">Script</button>
+          </div>
+        </div>
+
+        <nav class="topic-nav" id="topicNav" aria-label="Physics topics"></nav>
+      </aside>
+
+      <article class="panel content" id="content"></article>
+    </section>
+  </main>
+
+  <script>
+    const topics = [
+      {
+            "title": "Topic 1: Forces and Density",
+            "subtitle": "Forces, force arrows, balanced and unbalanced forces, friction, newton meters, density and displacement.",
+            "examFocus": [
+                  "Force diagrams",
+                  "Resultant force",
+                  "Friction practical",
+                  "Density"
+            ],
+            "bigIdea": "A force is a push or pull. Forces can change speed, direction or shape, and density tells us how much mass is packed into a volume.",
+            "mustKnow": [
+                  {
+                        "title": "Forces",
+                        "text": "Forces are pushes or pulls measured in newtons, N. They can change an object's speed, direction or shape."
+                  },
+                  {
+                        "title": "Contact and non-contact forces",
+                        "text": "Contact forces need touching, such as friction and air resistance. Non-contact forces act at a distance, such as gravity, magnetism and electrostatic force."
+                  },
+                  {
+                        "title": "Force arrows",
+                        "text": "Arrows show force direction and size. Longer arrows mean bigger forces."
+                  },
+                  {
+                        "title": "Balanced and unbalanced forces",
+                        "text": "Balanced forces cancel out, so an object stays still or moves at constant speed. Unbalanced forces create a resultant force and change motion."
+                  },
+                  {
+                        "title": "Friction",
+                        "text": "Friction is a contact force that opposes motion. It can help with grip and braking, but it can also waste energy as heat."
+                  },
+                  {
+                        "title": "Density",
+                        "text": "Density = mass divided by volume. If an object is less dense than water, it floats. If it is more dense, it sinks."
+                  }
+            ],
+            "practical": [
+                  "Use a newton meter to measure force in newtons.",
+                  "Compare friction on different surfaces while keeping the block and pulling method the same.",
+                  "Measure density of an irregular object using water displacement.",
+                  "Draw force arrows with correct direction and relative length."
+            ],
+            "memory": {
+                  "title": "Memory hooks",
+                  "points": [
+                        "Force = push or pull. Say: push-pull-force.",
+                        "Contact forces touch. Non-contact forces do not need touch.",
+                        "Balanced = boring: no change in motion.",
+                        "Unbalanced = update: speed or direction changes.",
+                        "Density formula: D = M / V. Dense matter is mass packed into volume.",
+                        "Displacement: the water level goes up by the object's volume."
+                  ]
+            },
+            "diagram": {
+                  "title": "Exam diagram: force arrows and density",
+                  "svg": "<svg viewBox=\"0 0 760 270\" role=\"img\" aria-label=\"Force arrows and density\"><rect width=\"760\" height=\"270\" fill=\"#fbfdfc\"/><text x=\"35\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Balanced forces</text><rect x=\"85\" y=\"95\" width=\"110\" height=\"65\" rx=\"8\" fill=\"#e6f4f1\" stroke=\"#136f63\"/><line x1=\"140\" y1=\"95\" x2=\"140\" y2=\"50\" stroke=\"#136f63\" stroke-width=\"5\"/><line x1=\"140\" y1=\"160\" x2=\"140\" y2=\"205\" stroke=\"#136f63\" stroke-width=\"5\"/><text x=\"108\" y=\"44\" font-size=\"14\" fill=\"#60716c\">normal</text><text x=\"112\" y=\"225\" font-size=\"14\" fill=\"#60716c\">weight</text><text x=\"285\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Unbalanced forces</text><rect x=\"345\" y=\"105\" width=\"110\" height=\"55\" rx=\"8\" fill=\"#fff4df\" stroke=\"#8b5b12\"/><line x1=\"345\" y1=\"132\" x2=\"285\" y2=\"132\" stroke=\"#8b5b12\" stroke-width=\"4\"/><line x1=\"455\" y1=\"132\" x2=\"560\" y2=\"132\" stroke=\"#8b5b12\" stroke-width=\"7\"/><text x=\"285\" y=\"118\" font-size=\"14\" fill=\"#60716c\">friction</text><text x=\"505\" y=\"118\" font-size=\"14\" fill=\"#60716c\">push</text><text x=\"595\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Displacement</text><rect x=\"625\" y=\"70\" width=\"70\" height=\"155\" fill=\"#ffffff\" stroke=\"#15201d\"/><rect x=\"626\" y=\"145\" width=\"68\" height=\"80\" fill=\"#7ed6df\" opacity=\"0.65\"/><circle cx=\"660\" cy=\"180\" r=\"20\" fill=\"#6f7774\" stroke=\"#15201d\"/><line x1=\"610\" y1=\"125\" x2=\"710\" y2=\"125\" stroke=\"#136f63\" stroke-dasharray=\"5 4\"/><text x=\"606\" y=\"247\" font-size=\"14\" fill=\"#60716c\">rise = volume</text></svg>",
+                  "labels": [
+                        [
+                              "What does a longer force arrow mean?",
+                              "A bigger force."
+                        ],
+                        [
+                              "If forces are balanced, what happens to motion?",
+                              "No change: still or constant speed."
+                        ],
+                        [
+                              "How do you find density?",
+                              "Density = mass / volume."
+                        ]
+                  ]
+            },
+            "vocab": [
+                  [
+                        "force",
+                        "fuerza"
+                  ],
+                  [
+                        "newton",
+                        "newton"
+                  ],
+                  [
+                        "friction",
+                        "friccion"
+                  ],
+                  [
+                        "gravity",
+                        "gravedad"
+                  ],
+                  [
+                        "balanced",
+                        "equilibrado"
+                  ],
+                  [
+                        "resultant force",
+                        "fuerza resultante"
+                  ],
+                  [
+                        "density",
+                        "densidad"
+                  ],
+                  [
+                        "mass",
+                        "masa"
+                  ],
+                  [
+                        "volume",
+                        "volumen"
+                  ],
+                  [
+                        "displacement",
+                        "desplazamiento"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What is a force?",
+                        "A push or a pull."
+                  ],
+                  [
+                        "What unit is force measured in?",
+                        "Newtons, N."
+                  ],
+                  [
+                        "Give one non-contact force.",
+                        "Gravity, magnetism or electrostatic force."
+                  ],
+                  [
+                        "What is the formula for density?",
+                        "Density = mass / volume."
+                  ],
+                  [
+                        "A 50 g object has volume 10 cm3. What is its density?",
+                        "5 g/cm3."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Calculate",
+                        "A box is pushed with 20 N right. Friction is 15 N left. What is the resultant force?",
+                        "5 N to the right. How to do it: Use the formula or subtract the opposing forces, then include the unit."
+                  ],
+                  [
+                        "Label it",
+                        "Draw a book on a table. Add the two vertical force arrows and name them.",
+                        "Weight down; normal contact force up. How to do it: Identify what the diagram is showing first, then add the correct labels in the correct place."
+                  ],
+                  [
+                        "Practical",
+                        "Water rises from 40 ml to 58 ml when a stone is added. What is the stone's volume?",
+                        "18 cm3. How to do it: Look for the measurement, the method, and what must be kept the same."
+                  ],
+                  [
+                        "Density",
+                        "A stone has mass 54 g and volume 18 cm3. Calculate density.",
+                        "54 / 18 = 3 g/cm3. How to do it: Use the formula or subtract the opposing forces, then include the unit."
+                  ]
+            ],
+            "script": [
+                  "Topic one. Forces and density.",
+                  "A force is a push or a pull, measured in newtons.",
+                  "Forces can change speed, direction or shape.",
+                  "Balanced forces cause no change in motion.",
+                  "Unbalanced forces create a resultant force.",
+                  "Friction opposes motion between touching surfaces.",
+                  "Density equals mass divided by volume.",
+                  "For irregular objects, use displacement: the rise in water level gives the volume.",
+                  "Quick check. What does a longer force arrow mean?"
+            ]
+      },
+      {
+            "title": "Topic 2: Energy",
+            "subtitle": "Energy stores, energy transfers, conservation of energy, renewable and non-renewable resources.",
+            "examFocus": [
+                  "Energy stores",
+                  "Transfers",
+                  "Conservation",
+                  "Resources"
+            ],
+            "bigIdea": "Energy is stored in different ways and transferred between stores. It is never created or destroyed.",
+            "mustKnow": [
+                  {
+                        "title": "Energy stores",
+                        "text": "Important stores include kinetic, gravitational potential, chemical, elastic and thermal energy."
+                  },
+                  {
+                        "title": "Energy transfers",
+                        "text": "Energy can be transferred by heating, light, sound, electrical work or mechanical work."
+                  },
+                  {
+                        "title": "Conservation",
+                        "text": "Energy cannot be created or destroyed. It is transferred from one store to another, but some is often dissipated to the surroundings."
+                  },
+                  {
+                        "title": "Renewable resources",
+                        "text": "Solar, wind, hydroelectric and biomass are replenished naturally on a human timescale."
+                  },
+                  {
+                        "title": "Non-renewable resources",
+                        "text": "Coal, oil and natural gas are fossil fuels. They will run out and release carbon dioxide when burned."
+                  }
+            ],
+            "practical": [
+                  "Identify energy stores before and after a change.",
+                  "Draw simple energy transfer chains.",
+                  "Compare advantages and disadvantages of energy resources.",
+                  "Use evidence, not just opinion, when choosing a resource."
+            ],
+            "memory": {
+                  "title": "Memory hooks",
+                  "points": [
+                        "Kinetic = movement. Think kinetic kick.",
+                        "GPE = height. Gravitational Potential Energy is energy up high.",
+                        "Chemical = food, fuels and batteries.",
+                        "Elastic = stretched or squashed.",
+                        "Renewable = returns. Non-renewable = not returning quickly."
+                  ]
+            },
+            "diagram": {
+                  "title": "Exam diagram: energy transfers",
+                  "svg": "<svg viewBox=\"0 0 760 250\" role=\"img\" aria-label=\"Energy transfer diagram\"><rect width=\"760\" height=\"250\" fill=\"#fbfdfc\"/><text x=\"35\" y=\"35\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Torch energy transfer</text><rect x=\"55\" y=\"90\" width=\"130\" height=\"70\" rx=\"8\" fill=\"#e6f4f1\" stroke=\"#136f63\"/><text x=\"120\" y=\"132\" font-size=\"16\" text-anchor=\"middle\" fill=\"#15201d\">chemical</text><path d=\"M195 125 h90\" stroke=\"#136f63\" stroke-width=\"5\"/><rect x=\"300\" y=\"90\" width=\"130\" height=\"70\" rx=\"8\" fill=\"#e6f4f1\" stroke=\"#136f63\"/><text x=\"365\" y=\"132\" font-size=\"16\" text-anchor=\"middle\" fill=\"#15201d\">electrical</text><path d=\"M440 125 h90\" stroke=\"#136f63\" stroke-width=\"5\"/><rect x=\"545\" y=\"75\" width=\"150\" height=\"100\" rx=\"8\" fill=\"#fff4df\" stroke=\"#8b5b12\"/><text x=\"620\" y=\"115\" font-size=\"16\" text-anchor=\"middle\" fill=\"#15201d\">light</text><text x=\"620\" y=\"145\" font-size=\"14\" text-anchor=\"middle\" fill=\"#60716c\">+ thermal</text><text x=\"55\" y=\"210\" font-size=\"15\" fill=\"#60716c\">Energy is transferred, not created.</text></svg>",
+                  "labels": [
+                        [
+                              "What energy store is in a battery?",
+                              "Chemical energy."
+                        ],
+                        [
+                              "What useful energy does a torch produce?",
+                              "Light energy."
+                        ],
+                        [
+                              "What happens to wasted energy?",
+                              "It is dissipated, often as thermal energy to the surroundings."
+                        ]
+                  ]
+            },
+            "vocab": [
+                  [
+                        "kinetic",
+                        "cinetica"
+                  ],
+                  [
+                        "chemical energy",
+                        "energia quimica"
+                  ],
+                  [
+                        "thermal energy",
+                        "energia termica"
+                  ],
+                  [
+                        "elastic energy",
+                        "energia elastica"
+                  ],
+                  [
+                        "energy transfer",
+                        "transferencia de energia"
+                  ],
+                  [
+                        "renewable",
+                        "renovable"
+                  ],
+                  [
+                        "non-renewable",
+                        "no renovable"
+                  ],
+                  [
+                        "fossil fuel",
+                        "combustible fosil"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What energy store does a moving car have?",
+                        "Kinetic."
+                  ],
+                  [
+                        "What energy store does a battery have?",
+                        "Chemical."
+                  ],
+                  [
+                        "State the conservation of energy idea.",
+                        "Energy cannot be created or destroyed, only transferred."
+                  ],
+                  [
+                        "Give two renewable resources.",
+                        "Solar, wind, hydroelectric, biomass."
+                  ],
+                  [
+                        "Give two fossil fuels.",
+                        "Coal, oil, natural gas."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Transfer chain",
+                        "Describe the energy transfer in a falling ball.",
+                        "Gravitational potential energy transfers to kinetic energy. How to do it: Match each word in the question to the correct physics concept."
+                  ],
+                  [
+                        "Classify",
+                        "Coal, wind, oil, solar: classify each as renewable or non-renewable.",
+                        "Coal and oil are non-renewable. Wind and solar are renewable. How to do it: Match each word in the question to the correct physics concept."
+                  ],
+                  [
+                        "Explain",
+                        "Why is coal called non-renewable?",
+                        "It takes millions of years to form and is used faster than it is replaced. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ],
+                  [
+                        "Compare",
+                        "Give one advantage and one disadvantage of solar power.",
+                        "Advantage: renewable/no pollution while generating. Disadvantage: depends on sunlight. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ]
+            ],
+            "script": [
+                  "Topic two. Energy.",
+                  "Energy can be stored in different ways.",
+                  "Kinetic means moving. Chemical energy is stored in food, fuels and batteries.",
+                  "Gravitational potential energy is energy because of height.",
+                  "Energy is transferred, not created or destroyed.",
+                  "Renewable resources are replaced naturally. Non-renewable resources will run out.",
+                  "Quick check. What energy store is in an unused battery?"
+            ]
+      },
+      {
+            "title": "Topic 3: Waves: Sound and Light",
+            "subtitle": "Sound vibrations, sound travel, reflection and absorption, shadows, mirrors, vision, amplitude and wavelength.",
+            "examFocus": [
+                  "Sound",
+                  "Light rays",
+                  "Reflection",
+                  "Wave labels"
+            ],
+            "bigIdea": "Waves transfer energy. Sound needs particles to travel, while light can travel through empty space.",
+            "mustKnow": [
+                  {
+                        "title": "Sound",
+                        "text": "Sound is made by vibrations and travels through solids, liquids and gases. It cannot travel through a vacuum."
+                  },
+                  {
+                        "title": "Reflection and absorption",
+                        "text": "Sound and light can reflect from surfaces. Soft materials absorb sound better than hard smooth surfaces."
+                  },
+                  {
+                        "title": "Light and seeing",
+                        "text": "We see objects when light from a source reflects from the object into our eyes."
+                  },
+                  {
+                        "title": "Shadows",
+                        "text": "Shadows form when an opaque object blocks light. Light travels in straight lines."
+                  },
+                  {
+                        "title": "Wave properties",
+                        "text": "Amplitude is wave height from the middle. Wavelength is the distance from one peak to the next peak."
+                  },
+                  {
+                        "title": "Transverse and longitudinal",
+                        "text": "Light and water waves are transverse. Sound in air is longitudinal, with compressions and rarefactions."
+                  }
+            ],
+            "practical": [
+                  "Draw ray diagrams with arrows showing light direction.",
+                  "Measure angles of incidence and reflection from a mirror.",
+                  "Label amplitude and wavelength on a wave.",
+                  "Explain why sound cannot travel through space."
+            ],
+            "memory": {
+                  "title": "Memory hooks",
+                  "points": [
+                        "Sound starts with shake: vibrations make sound.",
+                        "Light lines: light travels in straight lines.",
+                        "Reflection rule: angle in equals angle out.",
+                        "Amplitude = amount up.",
+                        "Wavelength = wave-to-wave length.",
+                        "Longitudinal sound: particles move along the direction of travel."
+                  ]
+            },
+            "diagram": {
+                  "title": "Exam diagram: reflection and wave labels",
+                  "svg": "<svg viewBox=\"0 0 760 270\" role=\"img\" aria-label=\"Reflection and wave labels\"><rect width=\"760\" height=\"270\" fill=\"#fbfdfc\"/><text x=\"35\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Reflection</text><line x1=\"80\" y1=\"190\" x2=\"310\" y2=\"190\" stroke=\"#15201d\" stroke-width=\"4\"/><line x1=\"195\" y1=\"65\" x2=\"195\" y2=\"218\" stroke=\"#60716c\" stroke-dasharray=\"5 4\"/><line x1=\"105\" y1=\"70\" x2=\"195\" y2=\"190\" stroke=\"#136f63\" stroke-width=\"5\"/><line x1=\"195\" y1=\"190\" x2=\"285\" y2=\"70\" stroke=\"#136f63\" stroke-width=\"5\"/><text x=\"90\" y=\"60\" font-size=\"14\" fill=\"#60716c\">incident ray</text><text x=\"250\" y=\"60\" font-size=\"14\" fill=\"#60716c\">reflected ray</text><text x=\"170\" y=\"235\" font-size=\"14\" fill=\"#60716c\">mirror</text><text x=\"430\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Wave</text><path d=\"M390 150 C430 70 470 70 510 150 S590 230 630 150 S710 70 750 150\" fill=\"none\" stroke=\"#136f63\" stroke-width=\"5\"/><line x1=\"470\" y1=\"150\" x2=\"470\" y2=\"80\" stroke=\"#8b5b12\" stroke-width=\"3\"/><text x=\"480\" y=\"115\" font-size=\"14\" fill=\"#8b5b12\">amplitude</text><line x1=\"470\" y1=\"235\" x2=\"630\" y2=\"235\" stroke=\"#15201d\" stroke-width=\"3\"/><text x=\"550\" y=\"258\" font-size=\"14\" text-anchor=\"middle\" fill=\"#60716c\">wavelength</text></svg>",
+                  "labels": [
+                        [
+                              "What is the law of reflection?",
+                              "Angle of incidence equals angle of reflection."
+                        ],
+                        [
+                              "What is amplitude?",
+                              "The height of a wave from the middle line."
+                        ],
+                        [
+                              "Why can light travel through space but sound cannot?",
+                              "Light does not need particles; sound does."
+                        ]
+                  ]
+            },
+            "vocab": [
+                  [
+                        "vibration",
+                        "vibracion"
+                  ],
+                  [
+                        "sound",
+                        "sonido"
+                  ],
+                  [
+                        "light",
+                        "luz"
+                  ],
+                  [
+                        "reflection",
+                        "reflexion"
+                  ],
+                  [
+                        "absorption",
+                        "absorcion"
+                  ],
+                  [
+                        "shadow",
+                        "sombra"
+                  ],
+                  [
+                        "amplitude",
+                        "amplitud"
+                  ],
+                  [
+                        "wavelength",
+                        "longitud de onda"
+                  ],
+                  [
+                        "transverse",
+                        "transversal"
+                  ],
+                  [
+                        "longitudinal",
+                        "longitudinal"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What makes sound?",
+                        "Vibrations."
+                  ],
+                  [
+                        "Can sound travel through a vacuum?",
+                        "No."
+                  ],
+                  [
+                        "How do we see an object?",
+                        "Light reflects from it into our eyes."
+                  ],
+                  [
+                        "What is wavelength?",
+                        "Distance from one peak to the next."
+                  ],
+                  [
+                        "What is the law of reflection?",
+                        "Angle of incidence equals angle of reflection."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Label it",
+                        "On a wave diagram, label amplitude and wavelength.",
+                        "Amplitude: height from middle. Wavelength: distance from peak to peak. How to do it: Identify what the diagram is showing first, then add the correct labels in the correct place."
+                  ],
+                  [
+                        "Ray diagram",
+                        "A ray hits a mirror at 35 degrees to the normal. What is the angle of reflection?",
+                        "35 degrees. How to do it: Identify what the diagram is showing first, then add the correct labels in the correct place."
+                  ],
+                  [
+                        "Explain",
+                        "Why is there no sound in space?",
+                        "There are no particles for sound vibrations to travel through. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ],
+                  [
+                        "Shadow",
+                        "Why does an opaque object make a shadow?",
+                        "It blocks light, and light travels in straight lines. How to do it: Match each word in the question to the correct physics concept."
+                  ]
+            ],
+            "script": [
+                  "Topic three. Waves, sound and light.",
+                  "Sound is made by vibrations and needs particles to travel.",
+                  "Light travels in straight lines and can travel through space.",
+                  "We see objects when light reflects into our eyes.",
+                  "The law of reflection says angle in equals angle out.",
+                  "Amplitude is wave height. Wavelength is peak to peak distance.",
+                  "Quick check. Why can sound not travel through a vacuum?"
+            ]
+      },
+      {
+            "title": "Topic 4: Our Place in Space",
+            "subtitle": "Day and night, year, solar system, gravity, stars, galaxies, Sun heating, Earth's tilt, seasons and changing ideas.",
+            "examFocus": [
+                  "Day/night",
+                  "Seasons",
+                  "Gravity",
+                  "Solar system"
+            ],
+            "bigIdea": "Earth spins, orbits the Sun, and is held in orbit by gravity. Seasons are caused by Earth's tilt, not by distance from the Sun.",
+            "mustKnow": [
+                  {
+                        "title": "Day and night",
+                        "text": "Earth spins on its axis once every 24 hours. The side facing the Sun has day; the side facing away has night."
+                  },
+                  {
+                        "title": "Year",
+                        "text": "Earth takes about one year to orbit the Sun."
+                  },
+                  {
+                        "title": "Gravity",
+                        "text": "Gravity is a non-contact force that attracts masses. It keeps planets in orbit around the Sun."
+                  },
+                  {
+                        "title": "Solar system",
+                        "text": "The solar system contains the Sun, planets, moons, dwarf planets, asteroids and comets."
+                  },
+                  {
+                        "title": "Stars and galaxies",
+                        "text": "The Sun is a star. A galaxy is a huge collection of stars. The Milky Way is our galaxy."
+                  },
+                  {
+                        "title": "Seasons",
+                        "text": "Seasons happen because Earth is tilted. When a hemisphere is tilted towards the Sun, it gets more direct sunlight and longer days."
+                  }
+            ],
+            "practical": [
+                  "Use a lamp and ball model to explain day and night.",
+                  "Use an orbit diagram to explain a year.",
+                  "Explain seasons using Earth's tilt.",
+                  "Compare old and modern ideas about Earth's place in space."
+            ],
+            "memory": {
+                  "title": "Memory hooks",
+                  "points": [
+                        "Spin = day. Orbit = year.",
+                        "Tilt, not distance, causes seasons.",
+                        "Sun is a star, not a planet.",
+                        "Gravity grabs: it pulls masses together.",
+                        "Galaxy = giant group of stars."
+                  ]
+            },
+            "diagram": {
+                  "title": "Exam diagram: day, year and seasons",
+                  "svg": "<svg viewBox=\"0 0 760 270\" role=\"img\" aria-label=\"Earth orbit and tilt\"><rect width=\"760\" height=\"270\" fill=\"#fbfdfc\"/><circle cx=\"380\" cy=\"135\" r=\"42\" fill=\"#ffd166\" stroke=\"#8b5b12\"/><text x=\"380\" y=\"140\" font-size=\"15\" text-anchor=\"middle\" fill=\"#15201d\">Sun</text><ellipse cx=\"380\" cy=\"135\" rx=\"270\" ry=\"88\" fill=\"none\" stroke=\"#60716c\" stroke-dasharray=\"6 5\"/><circle cx=\"140\" cy=\"135\" r=\"30\" fill=\"#7ed6df\" stroke=\"#136f63\"/><line x1=\"125\" y1=\"100\" x2=\"155\" y2=\"170\" stroke=\"#15201d\" stroke-width=\"3\"/><text x=\"140\" y=\"190\" font-size=\"14\" text-anchor=\"middle\" fill=\"#60716c\">tilted Earth</text><circle cx=\"620\" cy=\"135\" r=\"30\" fill=\"#7ed6df\" stroke=\"#136f63\"/><line x1=\"605\" y1=\"100\" x2=\"635\" y2=\"170\" stroke=\"#15201d\" stroke-width=\"3\"/><path d=\"M105 70 C80 115 85 165 120 205\" fill=\"none\" stroke=\"#136f63\" stroke-width=\"4\"/><text x=\"62\" y=\"140\" font-size=\"14\" fill=\"#60716c\">spin = day</text><text x=\"320\" y=\"245\" font-size=\"15\" fill=\"#60716c\">orbit around Sun = one year</text></svg>",
+                  "labels": [
+                        [
+                              "What causes day and night?",
+                              "Earth spinning on its axis."
+                        ],
+                        [
+                              "What causes seasons?",
+                              "Earth's tilt as it orbits the Sun."
+                        ],
+                        [
+                              "What force keeps planets in orbit?",
+                              "Gravity."
+                        ]
+                  ]
+            },
+            "vocab": [
+                  [
+                        "axis",
+                        "eje"
+                  ],
+                  [
+                        "orbit",
+                        "orbita"
+                  ],
+                  [
+                        "gravity",
+                        "gravedad"
+                  ],
+                  [
+                        "planet",
+                        "planeta"
+                  ],
+                  [
+                        "star",
+                        "estrella"
+                  ],
+                  [
+                        "galaxy",
+                        "galaxia"
+                  ],
+                  [
+                        "solar system",
+                        "sistema solar"
+                  ],
+                  [
+                        "season",
+                        "estacion"
+                  ],
+                  [
+                        "tilt",
+                        "inclinacion"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What causes day and night?",
+                        "Earth spinning on its axis."
+                  ],
+                  [
+                        "How long does Earth take to orbit the Sun?",
+                        "About one year."
+                  ],
+                  [
+                        "What is the Sun?",
+                        "A star."
+                  ],
+                  [
+                        "What is our galaxy called?",
+                        "The Milky Way."
+                  ],
+                  [
+                        "What causes seasons?",
+                        "Earth's tilt."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Explain",
+                        "Why is it night on one side of Earth?",
+                        "That side is facing away from the Sun. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ],
+                  [
+                        "Correct mistake",
+                        "A student says seasons happen because Earth is closer to the Sun in summer. Correct them.",
+                        "Seasons are caused by Earth's tilt, not distance from the Sun. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ],
+                  [
+                        "Name it",
+                        "What force keeps Earth orbiting the Sun?",
+                        "Gravity. How to do it: Match each word in the question to the correct physics concept."
+                  ],
+                  [
+                        "Order",
+                        "Put in size order: planet, solar system, galaxy.",
+                        "Planet < solar system < galaxy. How to do it: Match each word in the question to the correct physics concept."
+                  ]
+            ],
+            "script": [
+                  "Topic four. Our place in space.",
+                  "Earth spins once every twenty four hours. That causes day and night.",
+                  "Earth orbits the Sun once each year.",
+                  "Gravity keeps planets in orbit.",
+                  "The Sun is a star, and the Milky Way is our galaxy.",
+                  "Seasons are caused by Earth's tilt, not by distance from the Sun.",
+                  "Quick check. What causes day and night?"
+            ]
+      },
+      {
+            "title": "Topic 5: Heating and Cooling",
+            "subtitle": "Temperature, particle motion, mixing, cooling, thermal conductors and insulators, energy versus temperature.",
+            "examFocus": [
+                  "Temperature",
+                  "Cooling graphs",
+                  "Conductors",
+                  "Insulators"
+            ],
+            "bigIdea": "Heating changes the energy of particles. Temperature tells us how hot something is, but energy depends on temperature, mass and material.",
+            "mustKnow": [
+                  {
+                        "title": "Measuring temperature",
+                        "text": "Temperature is measured with a thermometer, usually in degrees Celsius."
+                  },
+                  {
+                        "title": "Particles and temperature",
+                        "text": "When a substance is heated, its particles usually move faster. When cooled, particles move slower."
+                  },
+                  {
+                        "title": "Mixing temperatures",
+                        "text": "Thermal energy transfers from hotter substances to colder substances until they reach a more even temperature."
+                  },
+                  {
+                        "title": "Cooling",
+                        "text": "A hot object cools faster when the temperature difference with the surroundings is bigger."
+                  },
+                  {
+                        "title": "Conductors",
+                        "text": "Thermal conductors transfer energy quickly. Metals are usually good thermal conductors."
+                  },
+                  {
+                        "title": "Insulators",
+                        "text": "Thermal insulators transfer energy slowly. Wool, foam, plastic and trapped air are useful insulators."
+                  },
+                  {
+                        "title": "Energy and temperature",
+                        "text": "Temperature and energy are not the same. A large bath of warm water can store more thermal energy than a small cup of hotter water."
+                  }
+            ],
+            "practical": [
+                  "Measure temperature accurately with a thermometer.",
+                  "Record cooling data in a table and plot a line graph.",
+                  "Compare insulating materials fairly.",
+                  "Identify control variables such as volume of water, starting temperature and time interval."
+            ],
+            "memory": {
+                  "title": "Memory hooks",
+                  "points": [
+                        "Hot to cold: thermal energy moves from hot objects to colder surroundings.",
+                        "Conductor = carries heat quickly.",
+                        "Insulator = interrupts heat transfer.",
+                        "Bigger temperature gap = faster cooling.",
+                        "Temperature is how hot; thermal energy is how much energy in total."
+                  ]
+            },
+            "diagram": {
+                  "title": "Exam diagram: cooling curve",
+                  "svg": "<svg viewBox=\"0 0 760 270\" role=\"img\" aria-label=\"Cooling curve and insulation\"><rect width=\"760\" height=\"270\" fill=\"#fbfdfc\"/><text x=\"40\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Cooling graph</text><line x1=\"70\" y1=\"210\" x2=\"350\" y2=\"210\" stroke=\"#15201d\" stroke-width=\"3\"/><line x1=\"70\" y1=\"210\" x2=\"70\" y2=\"55\" stroke=\"#15201d\" stroke-width=\"3\"/><text x=\"195\" y=\"245\" font-size=\"14\" fill=\"#60716c\">time</text><text x=\"20\" y=\"125\" font-size=\"14\" fill=\"#60716c\" transform=\"rotate(-90 20 125)\">temperature</text><path d=\"M75 70 C135 95 180 135 235 165 S310 198 345 205\" fill=\"none\" stroke=\"#136f63\" stroke-width=\"5\"/><text x=\"415\" y=\"30\" font-size=\"18\" font-weight=\"700\" fill=\"#15201d\">Insulation</text><rect x=\"455\" y=\"85\" width=\"130\" height=\"120\" rx=\"8\" fill=\"#fff4df\" stroke=\"#8b5b12\" stroke-width=\"8\"/><rect x=\"490\" y=\"105\" width=\"60\" height=\"85\" fill=\"#7ed6df\" opacity=\"0.75\" stroke=\"#15201d\"/><path d=\"M590 125 C645 105 675 95 710 80\" stroke=\"#8b2e20\" stroke-width=\"4\" fill=\"none\"/><path d=\"M590 165 C645 175 675 190 710 205\" stroke=\"#8b2e20\" stroke-width=\"4\" fill=\"none\"/><text x=\"465\" y=\"230\" font-size=\"14\" fill=\"#60716c\">insulation slows energy transfer</text></svg>",
+                  "labels": [
+                        [
+                              "What goes on the x-axis of a cooling graph?",
+                              "Time."
+                        ],
+                        [
+                              "Why does insulation help?",
+                              "It slows thermal energy transfer."
+                        ],
+                        [
+                              "When does a hot object cool fastest?",
+                              "When the temperature difference is greatest."
+                        ]
+                  ]
+            },
+            "vocab": [
+                  [
+                        "temperature",
+                        "temperatura"
+                  ],
+                  [
+                        "thermometer",
+                        "termometro"
+                  ],
+                  [
+                        "thermal energy",
+                        "energia termica"
+                  ],
+                  [
+                        "conductor",
+                        "conductor"
+                  ],
+                  [
+                        "insulator",
+                        "aislante"
+                  ],
+                  [
+                        "cooling",
+                        "enfriamiento"
+                  ],
+                  [
+                        "particles",
+                        "particulas"
+                  ],
+                  [
+                        "control variable",
+                        "variable de control"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What instrument measures temperature?",
+                        "A thermometer."
+                  ],
+                  [
+                        "What happens to particles when heated?",
+                        "They move faster."
+                  ],
+                  [
+                        "Give one good thermal conductor.",
+                        "Metal, such as copper or aluminium."
+                  ],
+                  [
+                        "Give one insulator.",
+                        "Wool, foam, plastic or trapped air."
+                  ],
+                  [
+                        "Is temperature the same as total thermal energy?",
+                        "No."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Graph",
+                        "A student records cooling every minute. What goes on the x-axis?",
+                        "Time in minutes. How to do it: Identify what the diagram is showing first, then add the correct labels in the correct place."
+                  ],
+                  [
+                        "Fair test",
+                        "Name two variables to keep the same when comparing cup insulation.",
+                        "Same volume of water, same starting temperature, same cup size, same time intervals. How to do it: Look for the measurement, the method, and what must be kept the same."
+                  ],
+                  [
+                        "Explain",
+                        "Why does a metal spoon feel cold at first?",
+                        "Metal conducts thermal energy away from your hand quickly. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ],
+                  [
+                        "Compare",
+                        "Which cools faster: a hot drink in a cold room or a warm drink in a warm room?",
+                        "The hot drink in a cold room, because the temperature difference is bigger. How to do it: Use the key science idea and connect it to the situation in the question."
+                  ]
+            ],
+            "script": [
+                  "Topic five. Heating and cooling.",
+                  "Temperature tells us how hot something is.",
+                  "When particles are heated, they usually move faster.",
+                  "Thermal energy transfers from hotter objects to colder objects.",
+                  "Conductors transfer energy quickly. Insulators transfer energy slowly.",
+                  "A cooling graph has time on the x axis and temperature on the y axis.",
+                  "Temperature and total thermal energy are not the same thing.",
+                  "Quick check. What does an insulator do?"
+            ]
+      },
+      {
+            "title": "Final Mixed Exam Practice",
+            "subtitle": "A larger practice set across all Year 7 Physics topics, with worked answers and how-to explanations.",
+            "examFocus": [
+                  "Mixed practice",
+                  "Calculations",
+                  "Diagrams",
+                  "Explanations"
+            ],
+            "bigIdea": "Use this at the end: try each question first, then open the answer and read the method.",
+            "mustKnow": [
+                  {
+                        "title": "How to use this section",
+                        "text": "Do not just read the answers. Try the question, say your answer aloud, then open the solution and compare."
+                  },
+                  {
+                        "title": "For calculations",
+                        "text": "Write the formula, substitute the numbers, calculate, and add the unit."
+                  },
+                  {
+                        "title": "For explanations",
+                        "text": "Use because. A good answer links the science idea to the exact situation in the question."
+                  },
+                  {
+                        "title": "For diagrams",
+                        "text": "Label direction, units and axes carefully. In physics, arrows and graph labels matter."
+                  }
+            ],
+            "practical": [
+                  "Read the question twice and underline the topic: forces, energy, waves, space, or heating.",
+                  "For practical questions, identify the independent variable, dependent variable and control variables.",
+                  "For calculation questions, always include the correct unit.",
+                  "For multiple choice, eliminate answers that break the key rule."
+            ],
+            "memory": {
+                  "title": "Exam habits",
+                  "points": [
+                        "Formula first, numbers second, unit last.",
+                        "If a question says explain, use because.",
+                        "If a question says compare, mention both things.",
+                        "If a graph is involved, check the axes before answering.",
+                        "If a diagram has arrows, direction matters."
+                  ]
+            },
+            "vocab": [
+                  [
+                        "resultant force",
+                        "fuerza resultante"
+                  ],
+                  [
+                        "density",
+                        "densidad"
+                  ],
+                  [
+                        "kinetic energy",
+                        "energia cinetica"
+                  ],
+                  [
+                        "renewable",
+                        "renovable"
+                  ],
+                  [
+                        "reflection",
+                        "reflexion"
+                  ],
+                  [
+                        "amplitude",
+                        "amplitud"
+                  ],
+                  [
+                        "orbit",
+                        "orbita"
+                  ],
+                  [
+                        "tilt",
+                        "inclinacion"
+                  ],
+                  [
+                        "insulator",
+                        "aislante"
+                  ],
+                  [
+                        "conductor",
+                        "conductor"
+                  ]
+            ],
+            "questions": [
+                  [
+                        "What should you write after a calculation answer?",
+                        "The unit."
+                  ],
+                  [
+                        "What word helps make explanations stronger?",
+                        "Because."
+                  ],
+                  [
+                        "What do you check first on a graph?",
+                        "The axes."
+                  ],
+                  [
+                        "What should force arrows show?",
+                        "Direction and size."
+                  ],
+                  [
+                        "What does a practical question often test?",
+                        "Variables, method, safety and fair testing."
+                  ]
+            ],
+            "examPractice": [
+                  [
+                        "Multiple choice",
+                        "A force is: A. stored energy B. a push or pull C. a type of wave D. a temperature",
+                        "Answer: B. How to do it: Recall the definition: a force is a push or a pull."
+                  ],
+                  [
+                        "Calculate",
+                        "A push of 30 N acts right and friction of 12 N acts left. What is the resultant force?",
+                        "Answer: 18 N to the right. How to do it: Opposite directions subtract: 30 - 12 = 18. Direction is the larger force."
+                  ],
+                  [
+                        "Multiple choice",
+                        "Balanced forces mean an object: A. must be stopped B. changes direction C. has no change in motion D. gets hotter",
+                        "Answer: C. How to do it: Balanced forces can mean stationary or constant speed; the key is no change in motion."
+                  ],
+                  [
+                        "Diagram",
+                        "A book rests on a table. Name the downward force and the upward force.",
+                        "Answer: Downward force is weight. Upward force is normal contact force. How to do it: Gravity pulls down; the table pushes up."
+                  ],
+                  [
+                        "Calculate",
+                        "Mass = 80 g, volume = 20 cm3. Calculate density.",
+                        "Answer: 4 g/cm3. How to do it: density = mass / volume = 80 / 20 = 4 g/cm3."
+                  ],
+                  [
+                        "Practical",
+                        "A stone makes water rise from 35 ml to 51 ml. What is the stone volume?",
+                        "Answer: 16 cm3. How to do it: final volume - starting volume = 51 - 35 = 16 ml, equal to 16 cm3."
+                  ],
+                  [
+                        "Multiple choice",
+                        "A moving bicycle mainly has which energy store? A. kinetic B. chemical C. elastic D. nuclear",
+                        "Answer: A. How to do it: kinetic means movement."
+                  ],
+                  [
+                        "Transfer chain",
+                        "Describe the energy transfer when a battery-powered torch is switched on.",
+                        "Answer: Chemical energy in the battery transfers electrically, then to light and some thermal energy. How to do it: Start with the store, then describe the useful output and wasted output."
+                  ],
+                  [
+                        "Classify",
+                        "Classify coal, oil, wind and solar as renewable or non-renewable.",
+                        "Answer: Coal and oil are non-renewable. Wind and solar are renewable. How to do it: Fossil fuels are non-renewable; natural flows like wind and sunlight are renewable."
+                  ],
+                  [
+                        "Explain",
+                        "Why is some energy wasted when a machine works?",
+                        "Answer: Some energy is dissipated to the surroundings, often as thermal energy or sound. How to do it: Use the word dissipated for wasted energy spreading out."
+                  ],
+                  [
+                        "Multiple choice",
+                        "Sound is made by: A. shadows B. vibrations C. gravity D. insulation",
+                        "Answer: B. How to do it: Sound starts with vibrating objects."
+                  ],
+                  [
+                        "Explain",
+                        "Why can sound not travel through space?",
+                        "Answer: Space is a vacuum with no particles for vibrations to pass through. How to do it: Sound needs particles; light does not."
+                  ],
+                  [
+                        "Ray diagram",
+                        "A light ray hits a mirror at 40 degrees to the normal. What is the angle of reflection?",
+                        "Answer: 40 degrees. How to do it: Law of reflection: angle of incidence equals angle of reflection."
+                  ],
+                  [
+                        "Label it",
+                        "On a wave, what is wavelength?",
+                        "Answer: The distance from one peak to the next peak. How to do it: Look for one full repeat of the wave pattern."
+                  ],
+                  [
+                        "Label it",
+                        "On a wave, what is amplitude?",
+                        "Answer: The height from the middle line to a peak or trough. How to do it: Do not measure peak-to-trough; measure from the centre line."
+                  ],
+                  [
+                        "Multiple choice",
+                        "Day and night are caused by: A. Earth orbiting the Sun B. Earth spinning C. the Moon D. seasons",
+                        "Answer: B. How to do it: Spin causes day and night; orbit causes a year."
+                  ],
+                  [
+                        "Correct mistake",
+                        "A student says seasons happen because Earth is closer to the Sun in summer. Correct the statement.",
+                        "Answer: Seasons are caused by Earth’s tilt, not distance from the Sun. How to do it: Mention tilt and direct sunlight/longer days."
+                  ],
+                  [
+                        "Name it",
+                        "What force keeps planets in orbit around the Sun?",
+                        "Answer: Gravity. How to do it: Gravity is the non-contact force attracting masses."
+                  ],
+                  [
+                        "Multiple choice",
+                        "The Sun is: A. a planet B. a moon C. a star D. a galaxy",
+                        "Answer: C. How to do it: The Sun is our nearest star."
+                  ],
+                  [
+                        "Graph",
+                        "In a cooling experiment, what goes on the x-axis?",
+                        "Answer: Time. How to do it: The independent variable, usually what you change or let pass, goes on the x-axis."
+                  ],
+                  [
+                        "Graph",
+                        "In a cooling experiment, what goes on the y-axis?",
+                        "Answer: Temperature. How to do it: The dependent variable, what you measure, goes on the y-axis."
+                  ],
+                  [
+                        "Explain",
+                        "Why does a metal spoon feel cold when you first touch it?",
+                        "Answer: Metal is a good thermal conductor, so it transfers thermal energy away from your hand quickly. How to do it: Link conductor to fast energy transfer."
+                  ],
+                  [
+                        "Fair test",
+                        "Name two control variables when testing which cup keeps water warmest.",
+                        "Answer: Same volume of water and same starting temperature. Also acceptable: same room, same time intervals, same cup size. How to do it: Control variables are things kept the same."
+                  ],
+                  [
+                        "Compare",
+                        "Which cools faster: hot tea in a cold room or warm tea in a warm room?",
+                        "Answer: Hot tea in a cold room. How to do it: Bigger temperature difference means faster cooling."
+                  ],
+                  [
+                        "Long answer",
+                        "Explain how to measure the density of an irregular stone.",
+                        "Answer: Measure its mass with a balance. Put water in a measuring cylinder and record the starting volume. Add the stone and record the new volume. The rise in water level is the stone volume. Calculate density = mass / volume. How to do it: This is the displacement method; include both measuring steps and the formula."
+                  ]
+            ],
+            "script": [
+                  "Final mixed exam practice.",
+                  "Try the question before opening the answer.",
+                  "For calculations, write the formula, substitute the numbers, calculate, and add the unit.",
+                  "For explanations, use the word because and connect the idea to the example.",
+                  "For diagrams, check arrows, axes and labels.",
+                  "Quick check. What is the formula for density?"
+            ]
+      }
+];
+
+    const content = document.getElementById("content");
+    const topicNav = document.getElementById("topicNav");
+    const playButton = document.getElementById("play");
+    const pauseButton = document.getElementById("pause");
+    const stopButton = document.getElementById("stop");
+    const rateInput = document.getElementById("rate");
+    const voiceSelect = document.getElementById("voice");
+    const statusBox = document.getElementById("status");
+    const modeButtons = [...document.querySelectorAll("[data-mode]")];
+
+    let topicIndex = 0;
+    let mode = "study";
+    let voices = [];
+    let scriptIndex = 0;
+    let playing = false;
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function setStatus(text) {
+      statusBox.textContent = text;
+    }
+
+    function renderNav() {
+      topicNav.innerHTML = "";
+      topics.forEach((topic, index) => {
+        const button = el("button", "topic-button" + (index === topicIndex ? " active" : ""));
+        button.type = "button";
+        button.innerHTML = `${topic.title}<span>${topic.examFocus.join(" | ")}</span>`;
+        button.addEventListener("click", () => {
+          stopAudio();
+          topicIndex = index;
+          scriptIndex = 0;
+          render();
+          setStatus(`Selected: ${topic.title}`);
+        });
+        topicNav.appendChild(button);
+      });
+    }
+
+    function renderBadges(topic, parent) {
+      const row = el("div", "badge-row");
+      topic.examFocus.forEach(item => row.appendChild(el("span", "badge", item)));
+      parent.appendChild(row);
+    }
+
+    function renderStudy(topic) {
+      const grid = el("div", "grid");
+      const idea = el("section", "card");
+      idea.appendChild(el("div", "mini-title", "Big idea"));
+      idea.appendChild(el("p", "", topic.bigIdea));
+      grid.appendChild(idea);
+
+      const practical = el("section", "card practical");
+      practical.appendChild(el("div", "mini-title", "Practical skills"));
+      const practicalList = el("ul");
+      topic.practical.forEach(item => practicalList.appendChild(el("li", "", item)));
+      practical.appendChild(practicalList);
+      grid.appendChild(practical);
+
+      if (topic.memory) {
+        const memory = el("section", "card memory-card");
+        memory.appendChild(el("div", "mini-title", topic.memory.title));
+        const memoryList = el("ul");
+        topic.memory.points.forEach(item => memoryList.appendChild(el("li", "", item)));
+        memory.appendChild(memoryList);
+        grid.appendChild(memory);
+      }
+
+      topic.mustKnow.forEach(item => {
+        const card = el("section", "card");
+        card.appendChild(el("h3", "", item.title));
+        card.appendChild(el("p", "", item.text));
+        grid.appendChild(card);
+      });
+
+      if (topic.diagram) renderDiagram(topic, grid);
+      if (topic.examPractice) renderExamPractice(topic, grid);
+
+      content.appendChild(grid);
+    }
+
+    function renderDiagram(topic, parent) {
+      const card = el("section", "card diagram-card");
+      card.appendChild(el("div", "mini-title", topic.diagram.title));
+      const diagram = el("div", "diagram");
+      diagram.innerHTML = topic.diagram.svg;
+      card.appendChild(diagram);
+
+      const labelCheck = el("div", "label-check");
+      topic.diagram.labels.forEach(([q, a], index) => {
+        const details = el("details");
+        details.appendChild(el("summary", "", `Label check ${index + 1}: ${q}`));
+        details.appendChild(el("p", "", a));
+        labelCheck.appendChild(details);
+      });
+      card.appendChild(labelCheck);
+      parent.appendChild(card);
+    }
+
+    function renderExamPractice(topic, parent) {
+      const card = el("section", "card exam-practice");
+      card.appendChild(el("div", "mini-title", "Exam practice"));
+      const tasks = el("div", "task-list");
+      topic.examPractice.forEach(([type, prompt, answer], index) => {
+        const details = el("details");
+        const summary = el("summary");
+        const tag = el("span", "task-type", type);
+        const text = el("span", "task-prompt", ` ${index + 1}. ${prompt}`);
+        summary.appendChild(tag);
+        summary.appendChild(text);
+        details.appendChild(summary);
+        details.appendChild(el("p", "", answer));
+        tasks.appendChild(details);
+      });
+      card.appendChild(tasks);
+      parent.appendChild(card);
+    }
+
+    function renderVocab(topic) {
+      const card = el("section", "card");
+      card.appendChild(el("div", "mini-title", "Vocabulary thesaurus"));
+      const table = el("table");
+      table.innerHTML = "<thead><tr><th>English</th><th>Spanish</th></tr></thead>";
+      const body = el("tbody");
+      topic.vocab.forEach(([en, es]) => {
+        const row = el("tr");
+        row.innerHTML = `<td>${en}</td><td>${es}</td>`;
+        body.appendChild(row);
+      });
+      table.appendChild(body);
+      card.appendChild(table);
+      content.appendChild(card);
+    }
+
+    function renderQuiz(topic) {
+      const grid = el("div", "grid");
+      topic.questions.forEach(([q, a], index) => {
+        const details = el("details");
+        const summary = el("summary", "", `${index + 1}. ${q}`);
+        const answer = el("p", "", a);
+        details.appendChild(summary);
+        details.appendChild(answer);
+        grid.appendChild(details);
+      });
+      content.appendChild(grid);
+    }
+
+    function renderScript(topic) {
+      const card = el("section", "card");
+      card.appendChild(el("div", "mini-title", "Speaker script"));
+      topic.script.forEach((line, index) => {
+        const p = el("p", index === scriptIndex ? "speaker-line" : "", line);
+        card.appendChild(p);
+      });
+      content.appendChild(card);
+    }
+
+    function render() {
+      const topic = topics[topicIndex];
+      content.innerHTML = "";
+      const head = el("section", "topic-head");
+      head.appendChild(el("h2", "", topic.title));
+      head.appendChild(el("p", "sub", topic.subtitle));
+      renderBadges(topic, head);
+      content.appendChild(head);
+
+      if (mode === "study") {
+        renderStudy(topic);
+        renderVocab(topic);
+        renderQuiz(topic);
+      }
+      if (mode === "exam") {
+        const grid = el("div", "grid");
+        if (topic.diagram) renderDiagram(topic, grid);
+        if (topic.examPractice) renderExamPractice(topic, grid);
+        content.appendChild(grid);
+      }
+      if (mode === "quiz") renderQuiz(topic);
+      if (mode === "script") renderScript(topic);
+
+      renderNav();
+      modeButtons.forEach(button => button.classList.toggle("active", button.dataset.mode === mode));
+    }
+
+    function loadVoices() {
+      voices = "speechSynthesis" in window ? window.speechSynthesis.getVoices() : [];
+      voiceSelect.innerHTML = "";
+      const englishVoices = voices.filter(voice => /^en[-_]/i.test(voice.lang || ""));
+      const usable = englishVoices.length ? englishVoices : voices;
+
+      usable.forEach(voice => {
+        const option = document.createElement("option");
+        option.value = voice.name;
+        option.textContent = `${voice.name} (${voice.lang})`;
+        voiceSelect.appendChild(option);
+      });
+
+      const preferred = usable.find(voice => /ryan/i.test(voice.name))
+        || usable.find(voice => /en[-_]gb/i.test(voice.lang || ""))
+        || usable[0];
+
+      if (preferred) voiceSelect.value = preferred.name;
+
+      if (!usable.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "Default browser voice";
+        voiceSelect.appendChild(option);
+      }
+    }
+
+    function selectedVoice() {
+      return voices.find(voice => voice.name === voiceSelect.value) || null;
+    }
+
+    function speakNext() {
+      if (!playing) return;
+      if (!("speechSynthesis" in window)) {
+        setStatus("Speech is not supported in this browser.");
+        playing = false;
+        return;
+      }
+
+      const topic = topics[topicIndex];
+      if (scriptIndex >= topic.script.length) {
+        setStatus("Finished this topic.");
+        playing = false;
+        scriptIndex = 0;
+        render();
+        return;
+      }
+
+      render();
+      const line = topic.script[scriptIndex];
+      const utterance = new SpeechSynthesisUtterance(line);
+      utterance.lang = "en-GB";
+      utterance.rate = Number(rateInput.value);
+      utterance.pitch = 1;
+      utterance.voice = selectedVoice();
+      utterance.onstart = () => setStatus(`Playing line ${scriptIndex + 1} of ${topic.script.length}`);
+      utterance.onerror = () => {
+        setStatus("Audio error. Try another browser voice.");
+        playing = false;
+      };
+      utterance.onend = () => {
+        scriptIndex += 1;
+        window.setTimeout(speakNext, line.includes("Quick check") ? 3200 : 450);
+      };
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function playAudio() {
+      if (!("speechSynthesis" in window)) {
+        setStatus("Speech is not supported in this browser.");
+        return;
+      }
+
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        playing = true;
+        setStatus("Playing.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      playing = true;
+      speakNext();
+    }
+
+    function pauseAudio() {
+      if ("speechSynthesis" in window && window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        setStatus("Paused.");
+      }
+    }
+
+    function stopAudio() {
+      playing = false;
+      scriptIndex = 0;
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      setStatus("Stopped.");
+      render();
+    }
+
+    modeButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        mode = button.dataset.mode;
+        render();
+      });
+    });
+
+    playButton.addEventListener("click", playAudio);
+    pauseButton.addEventListener("click", pauseAudio);
+    stopButton.addEventListener("click", stopAudio);
+
+    if ("speechSynthesis" in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    } else {
+      setStatus("Speech is not supported in this browser.");
+    }
+
+    render();
+  </script>
+</body>
+</html>
